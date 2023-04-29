@@ -1,0 +1,14 @@
+{
+  "name": "webctp-demo",
+  "version": "0.0.1",
+  "description": "A simple demo of how to use webctp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webctp"
+  ],
+  "author": "Dennis Xie",
+  "license": "ISC"
+}
