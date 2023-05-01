@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import React from "react";
 import { Layout, Space, Col, Row } from "antd";
+import Login from './mods/login';
 
 const { Header, Sider, Content } = Layout;
 
@@ -25,6 +26,9 @@ const App: React.FC = () => {
     <Space direction='vertical' style={{ width: '100%' }} size={[0, 48]}>
       <Layout>
         <Content style={contentStyle}>
+          <Row>
+            <Login />
+          </Row>
           <Row>
             <Col span={12}>
               <Row>kline</Row>
