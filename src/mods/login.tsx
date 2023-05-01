@@ -5,6 +5,8 @@ import { MdClient } from "../api/md";
 
 const onFinish = (values: any) => {
   console.log('Success:', values);
+  let mdclient = new MdClient(values.mdUrl, values.userId, values.password);
+  // let tdclient = new TdClient(values.tdUrl, values.userId, values.password);
 };
 
 const onFinishFailed = (errorInfo: any) => {
@@ -23,9 +25,17 @@ const Login: React.FC = () => (
     autoComplete="off"
   >
     <Form.Item
-      label="url"
-      name="url"
-      rules={[{ required: true, message: 'Please input your url!' }]}
+      label="td URL"
+      name="tdUrl"
+      rules={[{ required: true, message: 'Please input your td url!' }]}
+    >
+      <Input />
+    </Form.Item>
+
+    <Form.Item
+      label="md URL"
+      name="mdUrl"
+      rules={[{ required: true, message: 'Please input your md url!' }]}
     >
       <Input />
     </Form.Item>

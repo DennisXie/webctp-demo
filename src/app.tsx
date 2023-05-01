@@ -11,14 +11,12 @@ const headerStyle: React.CSSProperties = {
   height: 64,
   paddingInline: 50,
   lineHeight: '64px',
-  backgroundColor: '#7dbcea',
 }
 
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   lineHeight: '120px',
   color: '#fff',
-  backgroundColor: '#3ba0e9',
 }
 
 const App: React.FC = () => {

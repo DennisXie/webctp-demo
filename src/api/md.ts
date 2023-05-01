@@ -16,7 +16,8 @@ export class MdClient {
   // implement the callback methods
   onOpen(event: any) {
     // log
-    console.log('Connection opened')
+    console.log('Connection opened');
+    this.login();
   }
 
   onClose(event: any) {
@@ -32,7 +33,8 @@ export class MdClient {
   onMessage(event: any) {
     // Get the data from event, and then use the MsgType field find the callback in the callback objects
     let data = JSON.parse(event.data.toString());
-    this[data.msgType](data);
+    // this[data.msgType](data);
+    console.log(data);
   }
 
   login() {
