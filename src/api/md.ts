@@ -3,6 +3,8 @@ export class MdClient {
   username: string;
   password: string;
 
+  // public OnRspUserLogin: (any) => void;
+
   constructor(url: string, username: string, password: string) {
     this.ws = new WebSocket(url);
     this.ws.onopen = this.onOpen.bind(this);
@@ -33,8 +35,7 @@ export class MdClient {
   onMessage(event: any) {
     // Get the data from event, and then use the MsgType field find the callback in the callback objects
     let data = JSON.parse(event.data.toString());
-    // this[data.msgType](data);
-    console.log(data);
+    this[data.MsgType](data);
   }
 
   login() {
@@ -49,6 +50,8 @@ export class MdClient {
     this.ws.send(JSON.stringify(loginMsg))
   }
 
-  // implement the send method
-  send() {}
+  OnRspUserLogin(data: any) {
+    console.log("OnRspUserLogin", data);
+  }
+
 }

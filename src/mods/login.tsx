@@ -1,31 +1,28 @@
 // component with fields named url, username, password
 import React from "react"
-import { Button, Checkbox, Form, Input } from 'antd';
-import { MdClient } from "../api/md";
-
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-  let mdclient = new MdClient(values.mdUrl, values.userId, values.password);
-  // let tdclient = new TdClient(values.tdUrl, values.userId, values.password);
-};
+import { Button, Form, Input } from 'antd';
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
 
-const Login: React.FC = () => (
+interface LoginProps {
+  onFinish: (values: any) => void;
+}
+
+const Login: React.FC<LoginProps> = (props: LoginProps) => (
   <Form
     name="basic"
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
     style={{ maxWidth: 600 }}
     initialValues={{ remember: true }}
-    onFinish={onFinish}
+    onFinish={props.onFinish}
     onFinishFailed={onFinishFailed}
     autoComplete="off"
   >
     <Form.Item
-      label="td URL"
+      label="TD URL"
       name="tdUrl"
       rules={[{ required: true, message: 'Please input your td url!' }]}
     >
@@ -33,7 +30,7 @@ const Login: React.FC = () => (
     </Form.Item>
 
     <Form.Item
-      label="md URL"
+      label="MD URL"
       name="mdUrl"
       rules={[{ required: true, message: 'Please input your md url!' }]}
     >
@@ -58,7 +55,7 @@ const Login: React.FC = () => (
 
     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
       <Button type="primary" htmlType="submit">
-        connect
+        Connect & Login
       </Button>
     </Form.Item>
   </Form>
