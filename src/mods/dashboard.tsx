@@ -27,10 +27,10 @@ const Dashboard: React.FC<DashboardProps> = (props: DashboardProps) => {
       </Layout.Header>
       <Layout.Content style={contentStyle}>
         <Row>
-          <Col span={8}>
-            <InstrumentsBoard></InstrumentsBoard>
+          <Col span={4}>
+            <InstrumentsBoard tdClient={props.tdClient}></InstrumentsBoard>
           </Col>
-          <Col span={8}>
+          <Col span={12}>
             <Row>
               <Col span={24}>
                 <KlineBoard></KlineBoard>

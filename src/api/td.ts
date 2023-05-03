@@ -49,7 +49,16 @@ export class TdClient {
     this.ws.send(JSON.stringify(loginMsg))
   }
 
-  OnRspUserLogin(data: any) {
-    console.log("OnRspUserLogin", data);
+  OnRspUserLogin: (data: any) => void;
+
+  reqQryInstrument(ExchangeID: string|null, InstrumentID: string|null, ExchangeInstID: string|null, ProductID: string|null) {
+    let req = {
+      MsgType: "ReqQryInstrument",
+      QryInstrument: {ExchangeID, InstrumentID, ExchangeInstID, ProductID},
+      RequestID: 0
+    }
+    this.ws.send(JSON.stringify(req));
   }
+
+  OnRspQryInstrument: (data: any) => void;
 }
